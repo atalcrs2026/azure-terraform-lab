@@ -9,3 +9,9 @@ variable "location" {
   type        = string
   default     = "Southeast Asia"
 }
+
+variable "environment" {
+  description = "Deployment environment"
+  type        = string
+  default     = "Lab"
+}

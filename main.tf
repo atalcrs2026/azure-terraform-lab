@@ -1,11 +1,16 @@
 # Day 10 - Remote state verification
+# Day 11 - Terraform variables and locals
+
+locals {
+  environment = var.environment
+}
 
 resource "azurerm_resource_group" "lab" {
   name     = var.resource_group_name
   location = var.location
 
   tags = {
-    Environment = "Lab"
+    Environment = local.environment
   }
 }
 

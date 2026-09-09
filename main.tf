@@ -27,7 +27,13 @@ resource "azurerm_storage_account" "lab" {
   location                 = azurerm_resource_group.lab.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
+
+  tags = {
+    Environment = local.environment
+    ManagedBy   = "Terraform"
+  }
 }
+
 
 resource "azurerm_storage_container" "lab" {
   name                  = "lab-container"

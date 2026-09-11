@@ -1,13 +1,15 @@
+
 name: Terraform CI
 
 on:
   push:
     branches:
       - main
-
+  workflow_dispatch:
 jobs:
   terraform:
     runs-on: ubuntu-latest
+
     permissions:
       id-token: write
       contents: read
@@ -47,6 +49,7 @@ jobs:
   apply:
     needs: terraform
     runs-on: ubuntu-latest
+
     environment: production
 
     permissions:
